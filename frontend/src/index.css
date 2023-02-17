@@ -69,6 +69,11 @@ body {
 	margin: auto auto 3rem auto;
 }
 
+.navbar {
+	background: var(--green);
+	color: var(--black);
+}
+
 /* Media Queries */
 @media only screen and (max-width: 768px) {
 	.divider {
