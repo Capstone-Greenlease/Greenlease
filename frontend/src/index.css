@@ -1,13 +1,85 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+	--green: #dbe0c2;
+	--black: #40403e;
+	--grey: #707070;
+	--bg: #fffffb;
+	--blue: #209fa8;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	padding: 0;
+	margin: 0;
+	background: var(--bg);
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.landing-page {
+	background: var(--green);
+	height: 100vh;
+}
+
+.landing-page img {
+	display: block;
+	margin: 3rem auto 0 auto;
+	width: 10rem;
+}
+
+.landing-page h1 {
+	color: var(--black);
+	font-size: 4rem;
+	font-weight: 500;
+	margin: 0 0 3rem 0;
+	text-align: center;
+}
+
+.landing-page h2 {
+	color: var(--grey);
+	font-weight: 500;
+	text-align: center;
+	margin: 0 0 2rem 0;
+}
+
+.landing-page .btn {
+	display: block;
+	margin: 2rem auto 3rem auto;
+	background: var(--black);
+	border-radius: 5rem;
+	width: 7rem;
+}
+
+.landing-page .form-label,
+.landing-page .form-check-label {
+	color: var(--grey);
+}
+
+.landing-page .form-check-input:checked {
+	background: var(--grey);
+	border: 3px solid white;
+}
+
+.landing-page .form-control {
+	border-radius: 5rem;
+}
+
+.divider {
+	color: var(--grey);
+	width: 1px;
+	height: 100%;
+	background: var(--grey);
+	margin: auto auto 3rem auto;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+	.divider {
+		/* color: var(--grey); */
+		height: 1px;
+		width: 100%;
+		/* background: var(--grey); */
+		/* margin: auto auto 3rem auto; */
+	}
+
+	.landing-page {
+		height: 100%;
+	}
 }
