@@ -1,32 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setModalShow }) {
+	// React-router navigation object
 	const navigate = useNavigate();
 
+	// User attributes
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [url, setUrl] = useState("");
+	const [type, setType] = useState("");
 
+	// Handle user login procedure
 	const handleLogin = () => {
-		console.log(url);
-		console.log(email, password);
-
-		if (url === "") {
-			alert("Select a user type");
+		if (email === "" || password == "" || type == "") {
+			setModalShow(true);
 			return;
 		}
 
-		navigate(url);
+		navigate("/" + window.localStorage.getItem("type") + "/home");
 	};
+
+	useEffect(() => {
+		window.localStorage.setItem("email", email);
+		window.localStorage.setItem("password", password);
+		window.localStorage.setItem("type", type);
+	}, [email, password, type]);
 
 	return (
 		<Form>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
+			<h2>Login</h2>
+			<Form.Group className="mb-3">
 				<Form.Label>Email</Form.Label>
 				<Form.Control
 					type="email"
@@ -35,7 +42,7 @@ function Login() {
 				/>
 			</Form.Group>
 
-			<Form.Group className="mb-3" controlId="formBasicPassword">
+			<Form.Group className="mb-3">
 				<Form.Label>Password</Form.Label>
 				<Form.Control
 					type="password"
@@ -44,14 +51,14 @@ function Login() {
 				/>
 			</Form.Group>
 
-			<Form.Group className="mb-3" controlId="formBasicCheckbox">
+			<Form.Group className="mb-3">
 				<Row>
 					<Col>
 						<Form.Check
 							type="radio"
 							label="Tenant"
 							name="type"
-							onClick={() => setUrl("/tenant/home")}
+							onClick={() => setType("tenant")}
 						/>
 					</Col>
 					<Col>
@@ -59,7 +66,7 @@ function Login() {
 							type="radio"
 							label="Landlord"
 							name="type"
-							onClick={() => setUrl("/landlord/home")}
+							onClick={() => setType("landlord")}
 						/>
 					</Col>
 				</Row>

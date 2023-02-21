@@ -1,11 +1,18 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Rating from "../stats/Rating";
 
 function LandlordHome() {
-	// fetch
-	const test = [
+	// Testing w/o API
+
+	// Landlord Rating
+	const rating = 69;
+
+	// Landlord properties
+	const properties_test = [
 		{
 			name: "terrace",
 			location: "close",
@@ -13,17 +20,18 @@ function LandlordHome() {
 		},
 		{
 			name: "pueblo",
-			location: "far",
+			location: "close",
 			img: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		},
 		{
-			name: "guayama",
+			name: "miradero",
 			location: "far",
 			img: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		},
 	];
 
-	const cards = test.map((value, index) => {
+	// Properties in cards
+	const properties = properties_test.map((value, index) => {
 		return (
 			<Col key={index}>
 				<Card style={{ width: "18rem" }}>
@@ -39,10 +47,20 @@ function LandlordHome() {
 	});
 
 	return (
-		<>
-			<div>Landlord Home</div>
-			<Row>{cards}</Row>
-		</>
+		<div className="home-page">
+			<Container fluid>
+				<Row>
+					<div className="rating">
+						<h2>Landlord Rating</h2>
+						<Rating percentage={rating} />
+					</div>
+				</Row>
+				<Row>
+					<h2>My Property</h2>
+				</Row>
+				<Row>{properties}</Row>
+			</Container>
+		</div>
 	);
 }
 
