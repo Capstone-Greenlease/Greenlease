@@ -6,6 +6,7 @@ import logo from "../assets/logo_dark.svg";
 
 function Navigation() {
 	const type = window.localStorage.getItem("type");
+	const name = window.localStorage.getItem("name");
 
 	return (
 		<>
@@ -28,6 +29,11 @@ function Navigation() {
 							<Nav.Link href={"#/" + type + "/rent"}>Rent</Nav.Link>
 							<Nav.Link href={"#/" + type + "/payments"}>Payments</Nav.Link>
 						</Nav>
+					</Navbar.Collapse>
+					<Navbar.Collapse className="justify-content-end">
+						<Navbar.Text>
+							Signed in as: <a href="/">{name}</a>
+						</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>

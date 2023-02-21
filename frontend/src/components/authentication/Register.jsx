@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-function Register({ setModalShow }) {
+function Register({ setFieldErrorShow }) {
 	// React-router navigation object
 	const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ function Register({ setModalShow }) {
 			name == "" ||
 			phone == ""
 		) {
-			setModalShow(true);
+			setFieldErrorShow(true);
 			return;
 		}
 
@@ -109,7 +109,7 @@ function Register({ setModalShow }) {
 				</Row>
 			</Form.Group>
 
-			<Button variant="secondary" type="submit" onClick={handleRegister}>
+			<Button variant="secondary" type="button" onClick={handleRegister}>
 				Register
 			</Button>
 		</Form>

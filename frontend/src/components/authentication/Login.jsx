@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setModalShow }) {
+function Login({ setFieldErrorShow }) {
 	// React-router navigation object
 	const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ function Login({ setModalShow }) {
 	// Handle user login procedure
 	const handleLogin = () => {
 		if (email === "" || password == "" || type == "") {
-			setModalShow(true);
+			setFieldErrorShow(true);
 			return;
 		}
 
@@ -72,7 +72,7 @@ function Login({ setModalShow }) {
 				</Row>
 			</Form.Group>
 
-			<Button variant="secondary" type="submit" onClick={handleLogin}>
+			<Button variant="secondary" type="button" onClick={handleLogin}>
 				Login
 			</Button>
 		</Form>

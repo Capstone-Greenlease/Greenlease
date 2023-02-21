@@ -7,36 +7,16 @@ import Row from "react-bootstrap/Row";
 import logo from "../assets/logo_dark.svg";
 import Login from "./authentication/Login";
 import Register from "./authentication/Register";
+import FieldsError from "./notifications/FieldsError";
 
 function Landing() {
-	// Error modal
-	const [modalShow, setModalShow] = useState(false);
-	const errorModal = (
-		<Modal
-			show={modalShow}
-			onHide={() => setModalShow(false)}
-			size="lg"
-			centered
-		>
-			<Modal.Header>
-				<Modal.Title>
-					<h1>Error</h1>
-				</Modal.Title>
-			</Modal.Header>
-			<Modal.Body>
-				<h2>
-					Please make sure all fields are filled out and a user type is selected
-				</h2>
-			</Modal.Body>
-			<Modal.Footer>
-				<Button onClick={() => setModalShow(false)}>Close</Button>
-			</Modal.Footer>
-		</Modal>
-	);
+	// Error handlers
+	const [fieldErrorShow, setFieldErrorShow] = useState(false);
 
 	// Clear user details on render
 	useEffect(() => {
-		window.localStorage.clear();
+		window.localStorage.removeItem("email");
+		window.localStorage.removeItem("password");
 	}, []);
 
 	return (
@@ -52,16 +32,16 @@ function Landing() {
 				</Row>
 				<Row>
 					<Col xs={12} md={5}>
-						<Login setModalShow={setModalShow} />
+						<Login setFieldErrorShow={setFieldErrorShow} />
 					</Col>
 					<Col xs={12} md={2}>
 						<div className="divider"></div>
 					</Col>
 					<Col xs={12} md={5}>
-						<Register setModalShow={setModalShow} />
+						<Register setFieldErrorShow={setFieldErrorShow} />
 					</Col>
 				</Row>
-				{errorModal}
+				<FieldsError open={fieldErrorShow} setOpen={setFieldErrorShow} />
 			</Container>
 		</div>
 	);
