@@ -5,7 +5,100 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-function Register({ setFieldErrorShow }) {
+export function Login({ setFieldErrorShow, setUserErrorShow }) {
+	// React-router navigation object
+	const navigate = useNavigate();
+
+	// Local Storage object
+	const storage = window.localStorage;
+
+	// Fields
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [type, setType] = useState("");
+
+	// User attributes
+	// const [user, setUser] = useState({
+	// 	email: email,
+	// 	password: password,
+	// 	type: type,
+	// });
+
+	// Handle user login procedure
+	const handleLogin = () => {
+		// Check for empty fields
+		if (email === "" || password == "" || type == "") {
+			setFieldErrorShow(true);
+			return;
+		}
+
+		// Check if user exists
+		// if (!getUser()) {
+		// 	setUserErrorShow(true);
+		// 	return;
+		// }
+
+		navigate("/home");
+	};
+
+	useEffect(() => {
+		window.localStorage.setItem("name", "Walter");
+		window.localStorage.setItem("phone", "1234567890");
+		window.localStorage.setItem("email", email);
+		window.localStorage.setItem("password", password);
+		window.localStorage.setItem("type", type);
+	}, [email, password, type]);
+
+	return (
+		<Form>
+			<h2>Login</h2>
+			<Form.Group className="mb-3">
+				<Form.Label>Email</Form.Label>
+				<Form.Control
+					type="email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+				/>
+			</Form.Group>
+
+			<Form.Group className="mb-3">
+				<Form.Label>Password</Form.Label>
+				<Form.Control
+					type="password"
+					value={password}
+					onChange={(e) => setPassword(e.target.value)}
+				/>
+			</Form.Group>
+
+			<Form.Group className="mb-3">
+				<Row>
+					<Col>
+						<Form.Check
+							type="radio"
+							label="Tenant"
+							name="type"
+							onClick={() => setType("tenant")}
+						/>
+					</Col>
+					<Col>
+						<Form.Check
+							type="radio"
+							label="Landlord"
+							name="type"
+							onClick={() => setType("landlord")}
+						/>
+					</Col>
+				</Row>
+			</Form.Group>
+
+			<Button variant="secondary" type="button" onClick={handleLogin}>
+				Login
+			</Button>
+		</Form>
+	);
+}
+
+export function Register({ setFieldErrorShow }) {
 	// React-router navigation object
 	const navigate = useNavigate();
 
@@ -29,7 +122,7 @@ function Register({ setFieldErrorShow }) {
 			return;
 		}
 
-		navigate("/" + window.localStorage.getItem("type") + "/home");
+		navigate("/home");
 	};
 
 	useEffect(() => {
@@ -115,5 +208,3 @@ function Register({ setFieldErrorShow }) {
 		</Form>
 	);
 }
-
-export default Register;

@@ -1,11 +1,13 @@
-import Button from "react-bootstrap/Button";
+import { useState } from "react";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Rating from "../stats/Rating";
+import Button from "react-bootstrap/esm/Button";
+import Col from "react-bootstrap/esm/Col";
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/esm/Row";
+import { PropertyView } from "./Modal";
+import Rating from "./Rating";
 
-function LandlordHome() {
+export function LandlordHome() {
 	// Testing w/o API
 
 	// Landlord Rating
@@ -30,6 +32,8 @@ function LandlordHome() {
 		},
 	];
 
+	const [openView, setOpenView] = useState(false);
+
 	// Properties in cards
 	const properties = properties_test.map((value, index) => {
 		return (
@@ -39,7 +43,9 @@ function LandlordHome() {
 					<Card.Body>
 						<Card.Title>{value.name}</Card.Title>
 						<Card.Text>{value.location}</Card.Text>
-						<Button variant="primary">Go somewhere</Button>
+						<Button variant="primary" onClick={() => setOpenView(true)}>
+							View
+						</Button>
 					</Card.Body>
 				</Card>
 			</Col>
@@ -60,8 +66,23 @@ function LandlordHome() {
 				</Row>
 				<Row>{properties}</Row>
 			</Container>
+			<PropertyView open={openView} setOpen={setOpenView} />
 		</div>
 	);
 }
 
-export default LandlordHome;
+export function LandlordRent() {
+	return <div>Landlord Rent</div>;
+}
+export function LandlordPayments() {
+	return <div>Landlord Payments</div>;
+}
+export function TenantHome() {
+	return <div>Tenant Home</div>;
+}
+export function TenantRent() {
+	return <div>Tenant Rent</div>;
+}
+export function TenantPayments() {
+	return <div>Tenant Payments</div>;
+}

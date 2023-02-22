@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/esm/Button";
-import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import logo from "../assets/logo_dark.svg";
-import Login from "./authentication/Login";
-import Register from "./authentication/Register";
-import FieldsError from "./notifications/FieldsError";
+import { Login, Register } from "../components/Auth";
+import { EmptyFields, UserNotFound } from "../components/Modal";
 
 function Landing() {
 	// Error handlers
 	const [fieldErrorShow, setFieldErrorShow] = useState(false);
-
-	// Clear user details on render
-	useEffect(() => {
-		window.localStorage.removeItem("email");
-		window.localStorage.removeItem("password");
-	}, []);
+	const [userErrorShow, setUserErrorShow] = useState(false);
 
 	return (
 		<div className="landing-page">
@@ -32,7 +24,10 @@ function Landing() {
 				</Row>
 				<Row>
 					<Col xs={12} md={5}>
-						<Login setFieldErrorShow={setFieldErrorShow} />
+						<Login
+							setFieldErrorShow={setFieldErrorShow}
+							setUserErrorShow={setUserErrorShow}
+						/>
 					</Col>
 					<Col xs={12} md={2}>
 						<div className="divider"></div>
@@ -41,7 +36,8 @@ function Landing() {
 						<Register setFieldErrorShow={setFieldErrorShow} />
 					</Col>
 				</Row>
-				<FieldsError open={fieldErrorShow} setOpen={setFieldErrorShow} />
+				<EmptyFields open={fieldErrorShow} setOpen={setFieldErrorShow} />
+				<UserNotFound open={userErrorShow} setOpen={setUserErrorShow} />
 			</Container>
 		</div>
 	);
