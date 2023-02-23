@@ -38,7 +38,7 @@ export default function Navigation() {
 					</Navbar.Collapse>
 					<Navbar.Collapse className="justify-content-end">
 						<Navbar.Text>
-							Signed in as: <a href="/">{name}</a>
+							Signed in as: <a href="#/">{name}</a>
 						</Navbar.Text>
 					</Navbar.Collapse>
 				</Container>
