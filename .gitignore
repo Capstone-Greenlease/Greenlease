@@ -1,5 +1,6 @@
-# Pyton virtual environment
+# Pyton files
 venv
+__pycache__
 
 # Logs
 logs
