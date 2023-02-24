@@ -88,6 +88,34 @@ export function PropertyView({ open, setOpen }) {
 	);
 }
 
+export function InfoView({ open, setOpen, data}) {
+	return (
+		<Modal show={open} onHide={() => setOpen(false)} size="lg" centered>
+			<Modal.Header>
+				<Modal.Title id="contained-modal-title-vcenter">
+					{data.name}
+				</Modal.Title>
+			</Modal.Header>
+			<Modal.Body>
+				<h4>{data.address}</h4>
+				<p>	Location: {data.location} </p>
+				<p> Capacity: {data.capacity} </p>
+				<p> Price: {data.price} </p>
+				<Map />
+			</Modal.Body>
+			<Modal.Footer>
+				<Button
+					variant="secondary"
+					type="button"
+					onClick={() => setOpen(false)}
+				>
+					Close
+				</Button>
+			</Modal.Footer>
+		</Modal>
+	);
+}
+
 export function FilterView({ open, setOpen }) {
 	const [bedroomValue, setBedroomValue] = useState('1');
 	const bedrooms = [

@@ -4,9 +4,8 @@ import Button from "react-bootstrap/esm/Button";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
-import { PropertyView, FilterView } from "./Modal";
+import { PropertyView, FilterView, InfoView } from "./Modal";
 import Rating from "./Rating";
-import Badge from 'react-bootstrap/Badge';
 import db from '../data/db.json'
 import Modal from 'react-bootstrap/Modal';
 
@@ -81,11 +80,10 @@ export function LandlordPayments() {
 	return <div>Landlord Payments</div>;
 }
 
-
 export function LandlordListings() {
 
-	const [openView, setOpenView] = useState(false);
-	const [modalContent, setModalContent] = useState("");
+	const [infoView, setInfoView] = useState(false);
+	const [modalContent, setModalContent] = useState(0);
 	const [filterView, setfilterView] = useState(false);
 
 	// Properties in cards
@@ -99,7 +97,7 @@ export function LandlordListings() {
 						<Card.Text>{value.location}</Card.Text>
 						<Card.Text>Capacity: {value.capacity}</Card.Text>
 						<Card.Text>Price: {value.price}</Card.Text>
-						<Button variant="primary" onClick={() => {setOpenView(true); setModalContent(value.info)}}>
+						<Button variant="primary" onClick={() => {setInfoView(true); setModalContent(value.info)}}>
 							View
 						</Button>
 					</Card.Body>
@@ -114,43 +112,14 @@ export function LandlordListings() {
 				<Row>
 					<h2>Listings</h2>
 					<div className="float-right"> <Button variant="primary" onClick={() => setfilterView(true)}>Filter</Button></div>
-					
+
 				</Row>
 				<Row xs={1} md={6} className="g-4">{properties}</Row>
 			</Container>
-			<InfoView open={openView} setOpen={setOpenView} />
+			<InfoView open={infoView} setOpen={setInfoView} data={modalContent}/>
 			<FilterView open={filterView} setOpen={setfilterView} />
 		</div>
 	);
-
-	function InfoView({ open, setOpen }) {
-		return (
-			<Modal show={open} onHide={() => setOpen(false)} size="lg" centered>
-				<Modal.Header>
-					<Modal.Title id="contained-modal-title-vcenter">
-						{modalContent.name}
-					</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
-					<h4>{modalContent.address} </h4>
-					<p>
-						Capacity: {modalContent.capacity}
-						<br></br>
-						Price: {modalContent.price}						
-					</p>
-				</Modal.Body>
-				<Modal.Footer>
-					<Button
-						variant="secondary"
-						type="button"
-						onClick={() => setOpen(false)}
-					>
-						Close
-					</Button>
-				</Modal.Footer>
-			</Modal>
-		);
-	}
 }
 export function TenantHome() {
 	return <div>Tenant Home</div>;
