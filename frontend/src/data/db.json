@@ -13,10 +13,84 @@
 	],
 	"properties": [
 		{
-			"property_id": "0",
-			"address": "308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104",
-			"capacity": "4",
-			"picture": "https://static.wikia.nocookie.net/breakingbad/images/6/6c/White_Residence.png/revision/latest?cb=20120619230021"
+			"propertyid": 0,
+			"name": "Albuquerque",
+			"address":"308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104",
+			"location": "Very Far",
+			"capacity": 4,
+			"price":500,
+			"info":{
+				"name": "Albuquerque",
+				"address":"308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104",
+				"location": "Very Far",
+				"capacity": 4,
+				"price":500
+			},
+			"img": "https://static.wikia.nocookie.net/breakingbad/images/6/6c/White_Residence.png/revision/latest?cb=20120619230021"
+		},
+		{
+			"propertyid": 1,
+			"name": "Albuquerque 2",
+			"address":"309 Negra Arroyo Lane, Albuquerque, New Mexico, 87104",
+			"location": "Very Far",
+			"capacity": 2,
+			"price":550,
+			"info":{
+				"name": "Albuquerque 2",
+				"address":"309 Negra Arroyo Lane, Albuquerque, New Mexico, 87104",
+				"location": "Very Far",
+				"capacity": 2,
+				"price":550
+			},
+			"img": "https://static.wikia.nocookie.net/breakingbad/images/6/6c/White_Residence.png/revision/latest?cb=20120619230021"
+		},
+		{
+			"propertyid": 2,
+			"name": "Terrace",
+			"address":"Terrace",
+			"location": "Close",
+			"capacity": 1,
+			"price":450,
+			"info":{
+				"name": "Terrace",
+				"address":"Terrace",
+				"location": "Close",
+				"capacity": 1,
+				"price":450
+			},
+			"img": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		},
+		{
+			"propertyid": 3,
+			"name": "Pueblo",
+			"address":"Pueblo",
+			"location": "Close",
+			"capacity": 2,
+			"price":600,
+			"info":{
+				"name": "Pueblo",
+				"address":"Pueblo",
+				"location": "Close",
+				"capacity": 2,
+				"price":600
+			},
+			"img": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		},
+		{
+			"propertyid": 4,
+			"name": "Miradero",
+			"address":"Miradero",
+			"location": "Far",
+			"capacity": 2,
+			"price":500,
+			"info":{
+				"name": "Miradero",
+				"address":"Miradero",
+				"location": "Far",
+				"capacity": 2,
+				"price":500
+			},
+			"img": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 		}
 	]
 }
