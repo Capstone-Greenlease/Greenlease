@@ -12,6 +12,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@react-google-maps/api": "^2.18.1",
 		"apexcharts": "^3.37.0",
 		"bootstrap": "^5.2.3",
 		"gh-pages": "^5.0.0",
