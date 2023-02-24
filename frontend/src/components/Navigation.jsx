@@ -34,9 +34,6 @@ export default function Navigation() {
 							<Nav.Link eventKey={"/payments"} href={"#/payments"}>
 								Payments
 							</Nav.Link>
-							<Nav.Link eventKey={"/listings"} href={"#/listings"}>
-								Listings
-							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
 					<Navbar.Collapse >
