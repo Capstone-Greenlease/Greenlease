@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/esm/Button";
 import Modal from "react-bootstrap/Modal";
+import Map from "./Map";
 
 export function EmptyFields({ open, setOpen }) {
 	return (
@@ -67,6 +68,7 @@ export function PropertyView({ open, setOpen }) {
 					pasos de la alcaldia de Mayaguez, Restaurantes, Hospitales, y a
 					minutos del Colegio de Mayaguez. Incluyen Agua y Luz!
 				</p>
+				<Map />
 			</Modal.Body>
 			<Modal.Footer>
 				<Button
