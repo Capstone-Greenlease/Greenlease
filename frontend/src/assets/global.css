@@ -1,3 +1,6 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 /* CSS Variables */
 :root {
 	/* Color Palette  */
@@ -6,13 +9,15 @@
 	--grey: #707070;
 	--white: #fffffb;
 	--blue: #209fa8;
+	--shadow: 0 0.2rem 0.3rem 0 #9f9f9f;
 }
 
 /* ========================= Override browser defaults ========================= */
 
 /* Font */
 * {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+	/* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important; */
+	font-family: "Montserrat", sans-serif !important;
 }
 
 /* Body dimensions */
@@ -41,7 +46,7 @@ body {
 /* Landing page Greenlease title */
 .landing-page h1 {
 	color: var(--black);
-	font-size: 4rem;
+	font-size: 3.5rem;
 	font-weight: 500;
 	margin: 0 0 3rem 0;
 	text-align: center;
@@ -62,7 +67,7 @@ body {
 	background: var(--black);
 	border-radius: 5rem;
 	width: 9rem;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	font-weight: 100;
 }
 
@@ -70,7 +75,7 @@ body {
 .landing-page .form-label,
 .landing-page .form-check-label {
 	color: var(--grey);
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 }
 
 /* Landing page form inputs */
@@ -120,6 +125,14 @@ body {
 	font-weight: 100;
 }
 
+.modal h1 {
+	font-size: 1.7rem;
+}
+
+.modal h2 {
+	font-size: 1.3rem;
+}
+
 /* ========================= User Pages ========================= */
 
 /* Navigation bar */
@@ -132,23 +145,16 @@ body {
 /* Home page styles */
 .home-page h2 {
 	font-size: 1rem;
-	margin: 2rem 0 1rem 1rem;
+	margin: 2rem auto 0.1rem auto;
 }
 
 /* Home page rating */
 .rating {
 	margin: auto;
-	/* border: 1px solid red; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-/* 
-.rating * {
-	margin: auto;
-	width: 20rem;
-	border: 1px solid rgb(255, 255, 255);
-} */
 
 /* Media Queries */
 @media only screen and (max-width: 767px) {
