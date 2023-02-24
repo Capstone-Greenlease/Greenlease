@@ -8,8 +8,8 @@ class UsersHandler:
         result['user_id'] = row[0]
         result['email'] = row[1]
         result['password'] = row[2]
-        result['firstname'] = row[3]
-        result['lastname'] = row[4]
+        result['first_name'] = row[3]
+        result['last_name'] = row[4]
         result['phone'] = row[5]
         return result
 
