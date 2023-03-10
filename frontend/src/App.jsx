@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Navigation from "./components/Navigation";
+import PageLayout from "./layout/PageLayout";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Payments from "./pages/Payments";
@@ -9,7 +9,7 @@ function App() {
 	return (
 		<Routes>
 			<Route path="/" element={<Landing />} />
-			<Route element={<Navigation />}>
+			<Route element={<PageLayout />}>
 				<Route path="/home" element={<Home />} />
 				<Route path="/rent" element={<Rent />} />
 				<Route path="/payments" element={<Payments />} />
