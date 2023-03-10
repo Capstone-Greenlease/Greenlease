@@ -1,5 +1,5 @@
 export async function getUser({ email, password, type }) {
-	const api = "/data/users.json";
+	const api = "/greenlease/data/users.json";
 	const response = await fetch(api);
 	const data = await response.json();
 
@@ -21,7 +21,7 @@ export async function getUser({ email, password, type }) {
 }
 
 export async function getProperties(user_id) {
-	const api = "/data/properties.json";
+	const api = "/greenlease/data/properties.json";
 	const response = await fetch(api);
 	const data = await response.json();
 
